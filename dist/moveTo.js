@@ -1,24 +1,13 @@
 /*!
  * MoveTo - A lightweight scroll animation javascript library without any dependency.
- * Version 1.8.3 (21-07-2019 00:32)
+ * Version 1.8.3 (13-02-2020 19:08)
  * Licensed under MIT
- * Copyright 2019 Hasan Aydoğdu <hsnaydd@gmail.com>
+ * Copyright 2020 Hasan Aydoğdu <hsnaydd@gmail.com>
  */
 
 "use strict";
 
 var MoveTo = function () {
-  /**
-   * Defaults
-   * @type {object}
-   */
-  var defaults = {
-    tolerance: 0,
-    duration: 800,
-    easing: 'easeOutQuart',
-    container: window,
-    callback: function callback() {}
-  };
   /**
    * easeOutQuart Easing Function
    * @param  {number} t - current time
@@ -27,7 +16,6 @@ var MoveTo = function () {
    * @param  {number} d - duration
    * @return {number} - calculated value
    */
-
   function easeOutQuart(t, b, c, d) {
     t /= d;
     t--;
@@ -91,6 +79,13 @@ var MoveTo = function () {
   function MoveTo() {
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var easeFunctions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var defaults = {
+      tolerance: 0,
+      duration: 800,
+      easing: 'easeOutQuart',
+      container: window,
+      callback: function callback() {}
+    };
     this.options = mergeObject(defaults, options);
     this.easeFunctions = mergeObject({
       easeOutQuart: easeOutQuart

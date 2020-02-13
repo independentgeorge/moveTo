@@ -1,18 +1,6 @@
 
 const MoveTo = (() => {
   /**
-   * Defaults
-   * @type {object}
-   */
-  const defaults = {
-    tolerance: 0,
-    duration: 800,
-    easing: 'easeOutQuart',
-    container: window,
-    callback: function() {},
-  };
-
-  /**
    * easeOutQuart Easing Function
    * @param  {number} t - current time
    * @param  {number} b - start value
@@ -74,6 +62,14 @@ const MoveTo = (() => {
    * @param {object} easeFunctions Custom ease functions
    */
   function MoveTo(options = {}, easeFunctions = {}) {
+    const defaults = {
+      tolerance: 0,
+      duration: 800,
+      easing: 'easeOutQuart',
+      container: window,
+      callback: function() {},
+    };
+
     this.options = mergeObject(defaults, options);
     this.easeFunctions = mergeObject({easeOutQuart}, easeFunctions);
   }
